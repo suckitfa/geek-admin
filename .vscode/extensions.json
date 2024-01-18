@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ],
+  "fileheader.customMade": {
+    "Date": "Do not edit", // 文件创建时间(不变)
+    // 文件最后编辑者
+    "LastEditors": "git config user.name && git config user.email", 
+    "LastEditTime": "Do not edit", // 文件最后编辑时间
+    "FilePath": "Do not edit" // 文件在项目中的相对路径 自动更新
+  }
+  // 不填写对应属性即关闭对应功能
+}
