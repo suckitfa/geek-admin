@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 14:58:10
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 15:07:18
+ * @LastEditTime: 2024-01-18 16:49:13
  * @FilePath: \geek-admin\src\components\MyRate2.vue
 -->
 <template>
@@ -10,7 +10,7 @@
         <div class="rate" @mouseout="mouseOut">
             <span @mouseover="mouseOver(num)" v-for="num in 5" :key="num">☆</span>
             <span class="hollow" :style="fontwidth">
-                <span v-for="num in 5" :key="num">★</span>
+                <span @click="onRate(num)" v-for="num in 5" :key="num">★</span>
             </span>
         </div>
     </div>
@@ -67,3 +67,7 @@ function onRate(num){
     overflow: hidden;
 }
 </style>
+
+<!-- 
+    https://time.geekbang.org/column/article/435439
+ -->
