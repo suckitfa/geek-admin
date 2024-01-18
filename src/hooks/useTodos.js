@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 11:12:18
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 11:12:28
+ * @LastEditTime: 2024-01-18 14:11:21
  */
 // 所以，我们需要使用 Composition API 的逻辑来拆分代码，
 // 把一个功能相关的数据和方法都维护在一起。
@@ -11,9 +11,10 @@
 // ref、computed 等功能都是从 Vue 中单独引入，而不是依赖 this 上下文。
 // 其实你可以把组件内部的任何一段代码，从组件文件里抽离出一个独立的文件进行维护。
 import {ref,computed} from 'vue'
+import useStorage from './useStorage';
 function useTodos() {
     let title = ref("");
-    let todos = ref([{ title: "学习Vue", done: false }]);
+    let todos = useStorage('todos')
     function addTodo() {
       todos.value.push({
         title: title.value,

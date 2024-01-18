@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:37:49
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 13:20:51
+ * @LastEditTime: 2024-01-18 14:15:14
  * @FilePath: \geek-admin\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,6 +10,7 @@
 import TodoList from './components/TodoList.vue'
 import ShowMouse from './components/ShowMouse.vue';
 import MyCounter from './components/MyCounter.vue'
+import MyFullScreen from './components/MyFullScreen.vue';
 </script>
 
 <template>
@@ -25,6 +26,7 @@ import MyCounter from './components/MyCounter.vue'
     <TodoList />
     <ShowMouse></ShowMouse>
     <MyCounter></MyCounter>
+    <MyFullScreen></MyFullScreen>
   </main>
 </template>
 
