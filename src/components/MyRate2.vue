@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 14:58:10
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 16:49:13
+ * @LastEditTime: 2024-01-19 08:34:25
  * @FilePath: \geek-admin\src\components\MyRate2.vue
 -->
 <template>
@@ -19,10 +19,11 @@
 <script setup>
 import {defineProps,ref,computed} from 'vue'
 let props = defineProps({
-    value:Number,
+    // value:Number,
+    modelValue:Number,
     theme:{type:String,default:"orange"}
 })
-let rate = computed(()=>"★★★★★☆☆☆☆☆".slice(5 - props.value, 10 - props.value))
+// let rate = computed(()=>"★★★★★☆☆☆☆☆".slice(5 - props.value, 10 - props.value))
 
 const themeObj = {
     'black': '#00',
@@ -38,18 +39,20 @@ const fontstyle = computed(() => {
     return `color:${themeObj[props.theme]}`
 })
 
-let width = ref(props.value)
+let width = ref(props.modelValue)
 function mouseOver(i) {
     width.value = i
 }
 function mouseOut() {
-    width.value = props.value
+    width.value = props.modelValue
 }
 const fontwidth = computed(() => `width:${width.value}em;`)
 
-let emits = defineEmits('update-rate')
+// let emits = defineEmits('update-rate')
+let emits = defineEmits('update:modelValue')
 function onRate(num){ 
-    emits('update-rate',num)
+    // emits('update-rate',num)
+    emits('update:modelValue',num)
 }
 </script>
 

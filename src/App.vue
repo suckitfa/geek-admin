@@ -38,8 +38,8 @@ function update(num) {
     <!-- <MyRate :value="score"></MyRate> -->
     <!-- <MyRate :value="3" theme="red"></MyRate> -->
     <h3>Your score is : {{score}}</h3>
-    <MyRate2 @update-rate="update" :value="score" theme="white"></MyRate2>
-
+    <!-- <MyRate2 @update-rate="update" :value="score" theme="white"></MyRate2> -->
+    <MyRate2 v-model="score" theme="red"></MyRate2>
   </main>
 </template>
 
