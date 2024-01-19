@@ -2,6 +2,14 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:37:49
  * @LastEditors: GuangyuanTang 254202042@qq.com
+ * @LastEditTime: 2024-01-19 13:34:40
+ * @FilePath: \geek-admin\src\App.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!--
+ * @Author: GuangyuanTang 254202042@qq.com
+ * @Date: 2024-01-18 10:37:49
+ * @LastEditors: GuangyuanTang 254202042@qq.com
  * @LastEditTime: 2024-01-19 13:24:58
  * @FilePath: \geek-admin\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
@@ -15,6 +23,7 @@ import TodoList from './components/TodoList.vue'
 import MyRate2 from './components/MyRate2.vue';
 import MyBox from './components/MyBox.vue';
 import MyTitile from './components/MyTitile.vue';
+import DustBin from './components/DustBin.vue';
 import {ref} from 'vue'
 let score = ref(3.5)
 function update(num) {
@@ -33,6 +42,7 @@ function update(num) {
   <main class="main">
     <!-- <router-view></router-view> -->
     <TodoList ></TodoList>
+    <DustBin></DustBin>
     <!-- <ShowMouse></ShowMouse> -->
     <!-- <MyCounter></MyCounter> -->
     <!-- <MyFullScreen></MyFullScreen> -->
@@ -55,31 +65,4 @@ function update(num) {
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

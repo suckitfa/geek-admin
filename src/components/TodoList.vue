@@ -9,6 +9,16 @@
 <template>
     <div class="todo-wrapper">
         <input type="text" v-model="title" @keydown.enter="addTodo">
+        <span class="dustbin">
+            🗑
+          </span>
+      <div class="animate-wrap">
+          <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+              <div class="animate" v-show="animate.show">
+                  📋
+              </div>
+          </transition>
+      </div>
         <ul v-if="todos.length">
             <transition-group name="flip-list" tag="ul">
                 <li v-for="(todo,i) in todos" :key="todo.title">
@@ -75,9 +85,36 @@ let {title,todos,addTodo,clear,active,all,allDone,showModal} = useTodos()
 // 这样，组件就会解析成下面代码的样子。标签和样式的属性上，
 // 新增了 data- 的前缀，确保只在当前组件生效。
 
-function removeTodo(e,i) {
-    console.log('removeTodo = ',e,i)
-    todos.value.splice(i,1)
+// function removeTodo(e,i) {
+//     console.log('removeTodo = ',e,i)
+//     todos.value.splice(i,1)
+// }
+
+import {reactive} from 'vue'
+let animate = reactive({
+  show:false,
+  el:null
+})
+function beforeEnter(el){
+      let dom = animate.el
+      let rect = dom.getBoundingClientRect()
+      let x = window.innerWidth - rect.left - 60
+      let y = rect.top - 10
+      el.style.transform = `translate(-${x}px, ${y}px)`
+}
+function enter(el,done){
+      document.body.offsetHeight
+      el.style.transform = `translate(0,0)`
+      el.addEventListener('transitionend', done)
+}
+function afterEnter(el){
+      animate.show = false
+      el.style.display = 'none'
+}
+function removeTodo(e,i){
+  animate.el = e.target
+  animate.show = true
+  todos.value.splice(i,1)
 }
 </script>
 
@@ -129,5 +166,12 @@ function removeTodo(e,i) {
     .flip-list-leave-to {
         opacity: 0;
         transform: translateX(30px);
+    }
+    .animate-wrap .animate{
+        position :fixed;
+        right :10px;
+        top :10px;
+        z-index: 100;
+        transition: all 0.5s linear;
     }
 </style>
