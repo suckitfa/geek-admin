@@ -2,11 +2,12 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 14:58:10
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-19 08:34:25
+ * @LastEditTime: 2024-01-19 08:36:32
  * @FilePath: \geek-admin\src\components\MyRate2.vue
 -->
 <template>
     <div :style="fontstyle">
+        <slot></slot>
         <div class="rate" @mouseout="mouseOut">
             <span @mouseover="mouseOver(num)" v-for="num in 5" :key="num">☆</span>
             <span class="hollow" :style="fontwidth">

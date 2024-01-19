@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:37:49
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 16:52:58
+ * @LastEditTime: 2024-01-19 08:36:52
  * @FilePath: \geek-admin\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -39,7 +39,9 @@ function update(num) {
     <!-- <MyRate :value="3" theme="red"></MyRate> -->
     <h3>Your score is : {{score}}</h3>
     <!-- <MyRate2 @update-rate="update" :value="score" theme="white"></MyRate2> -->
-    <MyRate2 v-model="score" theme="red"></MyRate2>
+    <MyRate2 v-model="score" theme="red">
+      课程评分：
+    </MyRate2>
   </main>
 </template>
 
