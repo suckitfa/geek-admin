@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:56:13
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-19 09:01:50
+ * @LastEditTime: 2024-01-19 13:27:09
  * @FilePath: \geek-admin\src\components\TodoList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,10 +10,15 @@
     <div class="todo-wrapper">
         <input type="text" v-model="title" @keydown.enter="addTodo">
         <ul v-if="todos.length">
-            <li v-for="todo in todos" :key="todo.title">
-                <input type="checkbox" v-model="todo.done">
-                <span>{{todo.title}}</span>
-            </li>
+            <transition-group name="flip-list" tag="ul">
+                <li v-for="(todo,i) in todos" :key="todo.title">
+                    <input type="checkbox" v-model="todo.done">
+                    <span>{{todo.title}}</span>
+                    <span class="remove-btn" @click="removeTodo($event,i)">
+                        ❌
+                    </span>
+                </li>
+            </transition-group>
         </ul>
 
         <transition name="modal">
@@ -69,6 +74,11 @@ import useTodos from '../hooks/useTodos'
 let {title,todos,addTodo,clear,active,all,allDone,showModal} = useTodos()
 // 这样，组件就会解析成下面代码的样子。标签和样式的属性上，
 // 新增了 data- 的前缀，确保只在当前组件生效。
+
+function removeTodo(e,i) {
+    console.log('removeTodo = ',e,i)
+    todos.value.splice(i,1)
+}
 </script>
 
 <style scoped>
@@ -105,5 +115,19 @@ let {title,todos,addTodo,clear,active,all,allDone,showModal} = useTodos()
         .info {
             color: white;
         }
+    }
+
+    .flip-list-move {
+        transition: transform 0.8s ease;
+    }
+
+    .flip-list-enter-active,
+    .flip-list-leave-active {
+        transition: all 1s ease;
+    }
+    .flip-list-enter-from,
+    .flip-list-leave-to {
+        opacity: 0;
+        transform: translateX(30px);
     }
 </style>

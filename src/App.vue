@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:37:49
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-19 08:50:03
+ * @LastEditTime: 2024-01-19 13:24:58
  * @FilePath: \geek-admin\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -32,7 +32,7 @@ function update(num) {
 
   <main class="main">
     <!-- <router-view></router-view> -->
-    <TodoList />
+    <TodoList ></TodoList>
     <!-- <ShowMouse></ShowMouse> -->
     <!-- <MyCounter></MyCounter> -->
     <!-- <MyFullScreen></MyFullScreen> -->
@@ -45,8 +45,13 @@ function update(num) {
     </MyRate2>
 
     <MyBox></MyBox>
-
     <MyTitile></MyTitile>
+
+    <router-view v-slot="{component}">
+      <transition name="route" mode="out-in">
+        <component :is="component"></component>
+      </transition>
+    </router-view>
   </main>
 </template>
 
