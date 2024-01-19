@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup>
-// import TodoList from './components/TodoList.vue'
+import TodoList from './components/TodoList.vue'
 // import ShowMouse from './components/ShowMouse.vue';
 // import MyCounter from './components/MyCounter.vue'
 // import MyFullScreen from './components/MyFullScreen.vue';
@@ -32,7 +32,7 @@ function update(num) {
 
   <main class="main">
     <!-- <router-view></router-view> -->
-    <!-- <TodoList /> -->
+    <TodoList />
     <!-- <ShowMouse></ShowMouse> -->
     <!-- <MyCounter></MyCounter> -->
     <!-- <MyFullScreen></MyFullScreen> -->

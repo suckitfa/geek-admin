@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 11:12:18
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-18 14:11:21
+ * @LastEditTime: 2024-01-19 08:57:31
  */
 // 所以，我们需要使用 Composition API 的逻辑来拆分代码，
 // 把一个功能相关的数据和方法都维护在一起。
@@ -15,7 +15,16 @@ import useStorage from './useStorage';
 function useTodos() {
     let title = ref("");
     let todos = useStorage('todos')
+    let showModal = ref(false)
+
     function addTodo() {
+      if(!title.value) {
+        showModal.value = true
+        setTimeout(() => {
+          showModal.value = false
+        },1500)
+        return
+      }
       todos.value.push({
         title: title.value,
         done: false,
@@ -39,7 +48,8 @@ function useTodos() {
         });
       },
     });
-    return { title, todos, addTodo, clear, active, all, allDone };
+
+    return { title,showModal, todos, addTodo, clear, active, all, allDone };
   }
 
   export default useTodos
