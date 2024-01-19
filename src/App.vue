@@ -2,7 +2,7 @@
  * @Author: GuangyuanTang 254202042@qq.com
  * @Date: 2024-01-18 10:37:49
  * @LastEditors: GuangyuanTang 254202042@qq.com
- * @LastEditTime: 2024-01-19 08:36:52
+ * @LastEditTime: 2024-01-19 08:41:56
  * @FilePath: \geek-admin\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -13,6 +13,7 @@ import MyCounter from './components/MyCounter.vue'
 import MyFullScreen from './components/MyFullScreen.vue';
 // import MyRate from './components/MyRate.vue';
 import MyRate2 from './components/MyRate2.vue';
+import MyBox from './components/MyBox.vue';
 
 import {ref} from 'vue'
 let score = ref(3.5)
@@ -42,6 +43,8 @@ function update(num) {
     <MyRate2 v-model="score" theme="red">
       课程评分：
     </MyRate2>
+
+    <MyBox></MyBox>
   </main>
 </template>
 
